@@ -14,6 +14,12 @@ app.use((req, res, next) => {
   next();
 });
 
+// Root route
+app.get('/', (req, res) => {
+  res.send('Welcome to the IP Geolocation API! Go to <a href="/location">/location</a> to get your location data.');
+});
+
+// Location route
 app.get('/location', async (req, res) => {
   try {
     const ip = req.clientIp || '8.8.8.8'; // Use a default IP for testing
